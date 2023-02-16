@@ -15,7 +15,7 @@ def mydig():
 
 
 def find_root_server(domain_name):
-    root_servers = ['198.41.0.4']# , '199.9.14.201']
+    root_servers = ['198.41.0.4', '199.9.14.201']
     # ', '192.33.4.12' # all the roots servers we need to check
     # '199.7.91.13', '192.203.230.10', '192.5.5.241',
     # '192.112.36.4', '198.97.190.53', '192.36.148.17',
@@ -23,6 +23,7 @@ def find_root_server(domain_name):
 
     for server in root_servers:  # check all the root server
         recursive_query(domain_name, server)
+        return
 
 def check_additional_section(response):
     additional = response.additional
@@ -39,14 +40,13 @@ def recursive_query(domain_name, ip_address):
     #print(response)
     if response.answer != []:
         answer = response.answer
-        print(response)
         for ans in answer:
             if ans.rdtype == dns.rdatatype.CNAME: # if we get the cname we have to repeat the query with the new domainname
                 new_domain_name = ans.to_text().split()[4]
-                print("CNAME domain name: " + new_domain_name)
                 find_root_server(new_domain_name)
-                if ans.rdtype == dns.rdatatype.A:
-                    print(ans)
+            if ans.rdtype == dns.rdatatype.A:
+                final_answer_found(ans)
+                return
 
     else:  # if the answer section is not filled, we need to check the additional section
         if response.additional != []:
@@ -55,6 +55,8 @@ def recursive_query(domain_name, ip_address):
         else:
             return
 
+def final_answer_found(final_response):
+    print(final_response)
 
 if __name__ == '__main__':
     mydig()
