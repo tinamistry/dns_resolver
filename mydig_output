@@ -1,4 +1,7 @@
-QUESTION SECTION: 
+The input was: www.cnn.com
+
+
+QUESTION SECTION:
 www.cnn.com       IN    A
 ANSWER SECTION: 
 cnn-tls.map.fastly.net. 30 IN A 199.232.39.5
