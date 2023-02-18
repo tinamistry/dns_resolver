@@ -1,0 +1,6 @@
+QUESTION SECTION: 
+www.cnn.com       IN    A
+ANSWER SECTION: 
+cnn-tls.map.fastly.net. 30 IN A 199.232.39.5
+Query Time: 0.36247453998657875 seconds
+WHEN: 2023-02-18 13:40:38
