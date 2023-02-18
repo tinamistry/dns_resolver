@@ -1,9 +1,6 @@
-The input was: www.cnn.com
-
-
-QUESTION SECTION:
-www.cnn.com       IN    A
+QUESTION SECTION: 
+www.google.com       IN    A
 ANSWER SECTION: 
-cnn-tls.map.fastly.net. 30 IN A 199.232.39.5
-Query Time: 0.36247453998657875 seconds
-WHEN: 2023-02-18 13:40:38
+www.google.com. 300 IN A 142.250.65.228
+Query Time: 0.15306632799911313 seconds
+WHEN: 2023-02-18 14:25:43
